@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spiritual Self-Check – 1 John 1:6–10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .results {
+      background: #fff;
+      padding: 20px;
+      border-left: 4px solid #4CAF50;
+      margin-top: 30px;
+    }
+    .verse {
+      margin: 10px 0;
+      font-style: italic;
+      color: #555;
+    }
+    .link {
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spiritual Self-Check</h1>
+  <p>Based on <strong>1 John 1:6–10 (NKJV)</strong></p>
+
+  <form id="spiritual-form">
+    <div class="question">
+      <label>1. Do you claim to have fellowship with God while walking in darkness?</label><br/>
+      <input type="radio" name="q1" value="yes" required> Yes
+      <input type="radio" name="q1" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>2. Do you walk in the light and have fellowship with others?</label><br/>
+      <input type="radio" name="q2" value="yes" required> Yes
+      <input type="radio" name="q2" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>3. Do you claim you have no sin?</label><br/>
+      <input type="radio" name="q3" value="yes" required> Yes
+      <input type="radio" name="q3" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>4. Do you confess your sins?</label><br/>
+      <input type="radio" name="q4" value="yes" required> Yes
+      <input type="radio" name="q4" value="no"> No
+    </div>
+
+    <div class="question">
+      <label>5. Have you ever claimed to have never sinned?</label><br/>
+      <input type="radio" name="q5" value="yes" required> Yes
+      <input type="radio" name="q5" value="no"> No
+    </div>
+
+    <button type="submit">Check My Reflection</button>
+  </form>
+
+  <div class="results" id="results" style="display:none;"></div>
+
+  <script>
+    document.getElementById("spiritual-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const answers = {
+        q1: document.querySelector('input[name="q1"]:checked').value,
+        q2: document.querySelector('input[name="q2"]:checked').value,
+        q3: document.querySelector('input[name="q3"]:checked').value,
+        q4: document.querySelector('input[name="q4"]:checked').value,
+        q5: document.querySelector('input[name="q5"]:checked').value
+      };
+
+      let output = "";
+
+      // 1 John 1:6
+      if (answers.q1 === "yes") {
+        output += `<p>🟥 You claim fellowship with God but walk in darkness.</p>
+        <div class="verse">"If we say that we have fellowship with Him, and walk in darkness, we lie and do not practice the truth." 
+        – <a class="link" href="https://www.biblegateway.com/passage/?search=1+John+1%3A6&version=NKJV" target="_blank">1 John 1:6 (NKJV)</a></div>`;
+      }
+
+      // 1 John 1:7
+      if (answers.q2 === "yes") {
+        output += `<p>🟩 You walk in the light and have fellowship with others.</p>
+        <div class="verse">"But if we walk in the light as He is in the light, we have fellowship with one another, and the blood of Jesus Christ His Son cleanses us from all sin." 
+        – <a class="link" href="https://www.biblegateway.com/passage/?search=1+John+1%3A7&version=NKJV" target="_blank">1 John 1:7 (NKJV)</a></div>`;
+      }
+
+      // 1 John 1:8
+      if (answers.q3 === "yes") {
+        output += `<p>🟥 You claim to have no sin.</p>
+        <div class="verse">"If we say that we have no sin, we deceive ourselves, and the truth is not in us." 
+        – <a class="link" href="https://www.biblegateway.com/passage/?search=1+John+1%3A8&version=NKJV" target="_blank">1 John 1:8 (NKJV)</a></div>`;
+      }
+
+      // 1 John 1:9
+      if (answers.q4 === "yes") {
+        output += `<p>🟩 You confess your sins.</p>
+        <div class="verse">"If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness." 
+        – <a class="link" href="https://www.biblegateway.com/passage/?search=1+John+1%3A9&version=NKJV" target="_blank">1 John 1:9 (NKJV)</a></div>`;
+      }
+
+      // 1 John 1:10
+      if (answers.q5 === "yes") {
+        output += `<p>🟥 You claim you have never sinned.</p>
+        <div class="verse">"If we say that we have not sinned, we make Him a liar, and His word is not in us." 
+        – <a class="link" href="https://www.biblegateway.com/passage/?search=1+John+1%3A10&version=NKJV" target="_blank">1 John 1:10 (NKJV)</a></div>`;
+      }
+
+      document.getElementById("results").innerHTML = output;
+      document.getElementById("results").style.display = "block";
+    });
+  </script>
+</body>
+</html>
